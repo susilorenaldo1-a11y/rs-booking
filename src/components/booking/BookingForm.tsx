@@ -1,17 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-
-const DUMMY_DOCTORS = [
-  { id: "1", name: "Dr. Andini Lestari", specialization: "Dokter Umum", rating: 4.8, patients: 1240, schedule: "Sen-Jum 08:00-16:00", photo: "👩‍⚕️" },
-  { id: "2", name: "Dr. Budi Santoso", specialization: "Dokter Gigi", rating: 4.7, patients: 980, schedule: "Sen-Jum 09:00-15:00", photo: "👨‍⚕️" },
-  { id: "3", name: "Dr. Citra Dewi", specialization: "Dokter Anak", rating: 4.9, patients: 1560, schedule: "Sen-Sab 08:00-14:00", photo: "👩‍⚕️" },
-  { id: "4", name: "Dr. Darma Wijaya", specialization: "Dokter Penyakit Dalam", rating: 4.6, patients: 820, schedule: "Sen-Jum 10:00-16:00", photo: "👨‍⚕️" },
-  { id: "5", name: "Dr. Eka Putri", specialization: "Dokter Kulit & Kelamin", rating: 4.7, patients: 670, schedule: "Sel-Sab 08:00-13:00", photo: "👩‍⚕️" },
-  { id: "6", name: "Dr. Fajar Nugroho", specialization: "Dokter Jantung", rating: 4.9, patients: 2100, schedule: "Sen-Kam 08:00-15:00", photo: "👨‍⚕️" },
-  { id: "7", name: "Dr. Gita Rahayu", specialization: "Dokter Mata", rating: 4.8, patients: 1450, schedule: "Sen-Jum 09:00-16:00", photo: "👩‍⚕️" },
-  { id: "8", name: "Dr. Hadi Pratama", specialization: "Dokter Saraf", rating: 4.5, patients: 560, schedule: "Sen, Rab, Jum 08:00-14:00", photo: "👨‍⚕️" },
-];
+import { DUMMY_DOCTORS } from "@/lib/dummyData";
 
 interface TimeSlot {
   startTime: string;
@@ -172,8 +162,8 @@ export function BookingForm() {
           </svg>
         </div>
         <h2 className="text-2xl font-bold text-gray-800 mb-2">Booking Berhasil!</h2>
-        <p className="text-gray-600 mb-2">Nomor booking: <strong>BK-{Date.now().toString(36).toUpperCase()}</strong></p>
-        <p className="text-gray-700 text-sm mb-6">Pengingat akan dikirim via WhatsApp H-1 dan 1 jam sebelum jadwal.</p>
+        <p className="text-gray-800 mb-2">Nomor booking: <strong>BK-{Date.now().toString(36).toUpperCase()}</strong></p>
+        <p className="text-gray-900 text-sm mb-6">Pengingat akan dikirim via WhatsApp H-1 dan 1 jam sebelum jadwal.</p>
         <button onClick={() => { setSuccess(false); setStep(0); setSelectedDoctor(""); setSelectedDate(""); setSelectedSlot(null); setNotes(""); }} className="px-6 py-2.5 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition font-medium">
           Booking Baru
         </button>
@@ -202,7 +192,7 @@ export function BookingForm() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
           <div className="bg-white rounded-xl p-6 shadow-xl max-w-sm w-full mx-4">
             <h4 className="font-semibold text-gray-800 mb-2">Keluar dari Booking?</h4>
-            <p className="text-sm text-gray-700 mb-4">Progress Anda akan dihapus kecuali sudah disimpan.</p>
+            <p className="text-sm text-gray-900 mb-4">Progress Anda akan dihapus kecuali sudah disimpan.</p>
             <div className="flex gap-3 justify-end">
               <button onClick={() => setShowExitConfirm(false)} className="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50">Batal</button>
               <button onClick={confirmExit} className="px-4 py-2 text-sm bg-red-600 text-white rounded-lg hover:bg-red-700">Keluar</button>
@@ -216,11 +206,11 @@ export function BookingForm() {
           {steps.map((label, i) => (
             <div key={i} className="flex items-center gap-1.5">
               <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-medium transition ${
-                i <= step ? "bg-sky-500 text-white shadow" : "bg-gray-200 text-gray-700"
+                i <= step ? "bg-sky-500 text-white shadow" : "bg-gray-200 text-gray-900"
               }`}>
                 {i < step ? "✓" : i + 1}
               </div>
-              <span className={`text-xs hidden sm:inline ${i <= step ? "text-sky-600 font-medium" : "text-gray-600"}`}>{label}</span>
+              <span className={`text-xs hidden sm:inline ${i <= step ? "text-sky-600 font-medium" : "text-gray-800"}`}>{label}</span>
               {i < 3 && <div className={`w-4 sm:w-6 h-0.5 ${i < step ? "bg-sky-500" : "bg-gray-200"}`} />}
             </div>
           ))}
@@ -242,27 +232,27 @@ export function BookingForm() {
               <span className="w-8 h-8 bg-sky-100 rounded-lg flex items-center justify-center text-sky-600 text-sm">1</span>
               Registrasi Pasien
             </h3>
-            <p className="text-sm text-gray-700">Daftar dulu sebelum booking. Data Anda aman.</p>
+            <p className="text-sm text-gray-900">Daftar dulu sebelum booking. Data Anda aman.</p>
             {regError && <p className="text-red-500 text-sm">{regError}</p>}
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="sm:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap *</label>
+                <label className="block text-sm font-medium text-gray-900 mb-1">Nama Lengkap *</label>
                 <input type="text" required value={regData.name} onChange={(e) => setRegData({ ...regData, name: e.target.value })} className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none" placeholder="Nama lengkap Anda" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <label className="block text-sm font-medium text-gray-900 mb-1">Email</label>
                 <input type="email" value={regData.email} onChange={(e) => setRegData({ ...regData, email: e.target.value })} className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none" placeholder="email@contoh.com" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">No. WhatsApp *</label>
+                <label className="block text-sm font-medium text-gray-900 mb-1">No. WhatsApp *</label>
                 <input type="tel" required value={regData.phone} onChange={(e) => setRegData({ ...regData, phone: e.target.value })} className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none" placeholder="08123456789" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Tanggal Lahir</label>
+                <label className="block text-sm font-medium text-gray-900 mb-1">Tanggal Lahir</label>
                 <input type="date" value={regData.birthDate} onChange={(e) => setRegData({ ...regData, birthDate: e.target.value })} className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label>
+                <label className="block text-sm font-medium text-gray-900 mb-1">Jenis Kelamin</label>
                 <select value={regData.gender} onChange={(e) => setRegData({ ...regData, gender: e.target.value })} className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none">
                   <option value="">Pilih</option>
                   <option value="male">Laki-laki</option>
@@ -283,7 +273,7 @@ export function BookingForm() {
                 <button type="button" onClick={() => setStep(0)} className="text-sky-600 hover:text-sky-800 text-sm">&larr; Kembali ke Registrasi</button>
                 <h3 className="text-lg font-semibold text-gray-800 mt-1">Pilih Dokter</h3>
               </div>
-              <span className="text-xs text-gray-600">{DUMMY_DOCTORS.length} dokter tersedia</span>
+              <span className="text-xs text-gray-800">{DUMMY_DOCTORS.length} dokter tersedia</span>
             </div>
             <div className="grid sm:grid-cols-2 gap-3">
               {DUMMY_DOCTORS.map((doc) => (
@@ -299,9 +289,9 @@ export function BookingForm() {
                       <div className="flex items-center gap-2 mt-1.5">
                         <span className="text-yellow-500 text-xs">★ {doc.rating}</span>
                         <span className="text-gray-300 text-xs">|</span>
-                        <span className="text-gray-600 text-xs">{doc.patients}+ pasien</span>
+                        <span className="text-gray-800 text-xs">{doc.patients}+ pasien</span>
                       </div>
-                      <p className="text-gray-600 text-xs mt-1">{doc.schedule}</p>
+                      <p className="text-gray-800 text-xs mt-1">{doc.schedule}</p>
                     </div>
                   </div>
                 </button>
@@ -321,12 +311,12 @@ export function BookingForm() {
                 <span className="text-2xl">{selectedDoc.photo}</span>
                 <div>
                   <p className="font-semibold text-gray-800">{selectedDoc.name}</p>
-                  <p className="text-gray-700 text-xs">{selectedDoc.schedule}</p>
+                  <p className="text-gray-900 text-xs">{selectedDoc.schedule}</p>
                 </div>
               </div>
             )}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Pilih Tanggal</label>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Pilih Tanggal</label>
               <input type="date" value={selectedDate}
                 min={new Date().toISOString().split("T")[0]}
                 max={new Date(Date.now() + 30 * 86400000).toISOString().split("T")[0]}
@@ -335,7 +325,7 @@ export function BookingForm() {
             </div>
             {selectedDate && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Slot Tersedia</label>
+                <label className="block text-sm font-medium text-gray-900 mb-2">Slot Tersedia</label>
                 {slotsLoading ? (
                   <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                     {Array.from({ length: 6 }).map((_, i) => (
@@ -343,7 +333,7 @@ export function BookingForm() {
                     ))}
                   </div>
                 ) : slots.length === 0 ? (
-                  <p className="text-gray-700 text-sm">Tidak ada slot tersedia. Pilih tanggal lain.</p>
+                  <p className="text-gray-900 text-sm">Tidak ada slot tersedia. Pilih tanggal lain.</p>
                 ) : (
                   <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                     {slots.map((slot) => (
@@ -351,7 +341,7 @@ export function BookingForm() {
                         className={`px-3 py-2.5 rounded-lg text-sm font-medium transition border ${
                           selectedSlot?.startTime === slot.startTime
                             ? "bg-sky-500 text-white border-sky-500 shadow"
-                            : "bg-white text-gray-700 border-gray-200 hover:border-sky-300 hover:bg-sky-50"
+                            : "bg-white text-gray-900 border-gray-200 hover:border-sky-300 hover:bg-sky-50"
                         }`}>{slot.startTime}</button>
                     ))}
                   </div>
@@ -369,15 +359,15 @@ export function BookingForm() {
             </div>
 
             <div className="bg-sky-50 rounded-lg p-4 space-y-2 text-sm">
-              <p><span className="font-medium text-gray-600">Pasien:</span> {regData.name}</p>
-              <p><span className="font-medium text-gray-600">WhatsApp:</span> {regData.phone}</p>
-              <p><span className="font-medium text-gray-600">Dokter:</span> {selectedDoc?.name}</p>
-              <p><span className="font-medium text-gray-600">Tanggal:</span> {selectedDate && new Date(selectedDate + "T00:00:00").toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</p>
-              <p><span className="font-medium text-gray-600">Jam:</span> {selectedSlot?.startTime} - {selectedSlot?.endTime} WIB</p>
+              <p><span className="font-medium text-gray-800">Pasien:</span> {regData.name}</p>
+              <p><span className="font-medium text-gray-800">WhatsApp:</span> {regData.phone}</p>
+              <p><span className="font-medium text-gray-800">Dokter:</span> {selectedDoc?.name}</p>
+              <p><span className="font-medium text-gray-800">Tanggal:</span> {selectedDate && new Date(selectedDate + "T00:00:00").toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</p>
+              <p><span className="font-medium text-gray-800">Jam:</span> {selectedSlot?.startTime} - {selectedSlot?.endTime} WIB</p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Catatan / Keluhan</label>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Catatan / Keluhan</label>
               <textarea value={notes} onChange={(e) => setNotes(e.target.value)}
                 className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none" rows={3}
                 placeholder="Jelaskan gejala atau keluhan Anda..." />
@@ -387,7 +377,7 @@ export function BookingForm() {
               className="w-full py-3 bg-sky-500 text-white font-medium rounded-lg hover:bg-sky-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition text-sm">
               {submitting ? "⏳ Memproses..." : "✅ Konfirmasi Booking"}
             </button>
-            <p className="text-xs text-gray-600 text-center">Dengan konfirmasi, Anda setuju menerima pengingat WhatsApp</p>
+            <p className="text-xs text-gray-800 text-center">Dengan konfirmasi, Anda setuju menerima pengingat WhatsApp</p>
           </div>
         )}
       </form>

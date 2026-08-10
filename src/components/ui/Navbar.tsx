@@ -14,13 +14,13 @@ export default function Navbar() {
             <span className="font-bold text-gray-900 text-lg">RS Booking</span>
           </Link>
           <div className="flex items-center gap-4 sm:gap-6">
-            <Link href="/booking" className="text-sm text-gray-600 hover:text-sky-600 transition font-medium">
+            <Link href="/booking" className="text-sm text-gray-900 hover:text-sky-600 transition font-medium">
               Booking
             </Link>
-            <Link href="/chat" className="text-sm text-gray-600 hover:text-sky-600 transition font-medium">
+            <Link href="/chat" className="text-sm text-gray-900 hover:text-sky-600 transition font-medium">
               AI Chat
             </Link>
-            <Link href="/admin" className="text-sm text-gray-600 hover:text-sky-600 transition font-medium">
+            <Link href="/admin" className="text-sm text-gray-900 hover:text-sky-600 transition font-medium">
               Admin
             </Link>
           </div>

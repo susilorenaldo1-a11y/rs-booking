@@ -41,7 +41,7 @@ export default function ChatBot() {
           <div className="space-y-3">
             <div className="text-center py-4">
               <span className="text-4xl">🤖</span>
-              <p className="text-gray-700 text-sm mt-2">Halo! Saya asisten AI RS Booking. Silakan tanyakan:</p>
+              <p className="text-gray-900 text-sm mt-2">Halo! Saya asisten AI RS Booking. Silakan tanyakan:</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {quickActions.map((action, i) => (

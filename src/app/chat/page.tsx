@@ -6,7 +6,7 @@ export default function ChatPage() {
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">AI Asisten RS Booking</h1>
-          <p className="text-gray-700 mt-2">Konsultasi jadwal dokter & booking melalui chat dengan AI</p>
+          <p className="text-gray-900 mt-2">Konsultasi jadwal dokter & booking melalui chat dengan AI</p>
         </div>
         <ChatBot />
       </div>

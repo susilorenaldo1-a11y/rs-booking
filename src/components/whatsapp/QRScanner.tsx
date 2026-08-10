@@ -64,7 +64,7 @@ export default function QRScanner() {
                 ? "bg-green-100 text-green-700"
                 : status === "connecting"
                 ? "bg-yellow-100 text-yellow-700"
-                : "bg-gray-100 text-gray-600"
+                : "bg-gray-100 text-gray-800"
             }`}
           >
             {status === "connected" ? "Connected" : status === "connecting" ? "Connecting..." : "Disconnected"}
@@ -79,12 +79,12 @@ export default function QRScanner() {
 
         {qrData && status === "connecting" && (
           <div className="text-center space-y-4">
-            <p className="text-sm text-gray-600">Scan QR Code ini dengan WhatsApp Anda:</p>
+            <p className="text-sm text-gray-800">Scan QR Code ini dengan WhatsApp Anda:</p>
             <div className="bg-white p-4 rounded-lg border border-gray-200 inline-block">
               <div id="qrcode-canvas" className="w-64 h-64 mx-auto" />
               <QRCodeDisplay data={qrData} />
             </div>
-            <p className="text-xs text-gray-600">Buka WhatsApp &gt; Linked Devices &gt; Scan QR Code</p>
+            <p className="text-xs text-gray-800">Buka WhatsApp &gt; Linked Devices &gt; Scan QR Code</p>
           </div>
         )}
 
@@ -96,7 +96,7 @@ export default function QRScanner() {
               </svg>
             </div>
             <p className="text-gray-800 font-medium">WhatsApp Terhubung</p>
-            <p className="text-sm text-gray-700">Pengingat otomatis akan dikirim via WhatsApp</p>
+            <p className="text-sm text-gray-900">Pengingat otomatis akan dikirim via WhatsApp</p>
           </div>
         )}
 
@@ -122,7 +122,7 @@ export default function QRScanner() {
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
         <h4 className="font-semibold text-gray-800 mb-2">Informasi</h4>
-        <ul className="text-sm text-gray-600 space-y-2">
+        <ul className="text-sm text-gray-800 space-y-2">
           <li>WhatsApp digunakan untuk mengirim pengingat otomatis H-1 dan 1 jam sebelum jadwal</li>
           <li>Pastikan nomor WhatsApp yang digunakan sudah terdaftar sebagai WhatsApp Business</li>
           <li>Koneksi akan tetap aktif selama server berjalan</li>

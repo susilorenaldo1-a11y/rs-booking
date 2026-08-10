@@ -37,7 +37,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="font-semibold text-gray-800 mb-2">Booking Interaktif</h3>
-            <p className="text-sm text-gray-700">Registrasi, pilih dokter, tanggal, dan jam dengan 4 langkah mudah.</p>
+            <p className="text-sm text-gray-900">Registrasi, pilih dokter, tanggal, dan jam dengan 4 langkah mudah.</p>
           </div>
           <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-sky-100">
             <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -46,7 +46,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="font-semibold text-gray-800 mb-2">AI Chatbot (RAG)</h3>
-            <p className="text-sm text-gray-700">Tanya jadwal & booking dokter via chat. Bot responsif 24/7 tanpa API key.</p>
+            <p className="text-sm text-gray-900">Tanya jadwal & booking dokter via chat. Bot responsif 24/7 tanpa API key.</p>
           </div>
           <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-sky-100">
             <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -55,7 +55,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="font-semibold text-gray-800 mb-2">Pengingat WhatsApp</h3>
-            <p className="text-sm text-gray-700">Notifikasi otomatis H-1 dan 1 jam sebelum janji temu via WhatsApp.</p>
+            <p className="text-sm text-gray-900">Notifikasi otomatis H-1 dan 1 jam sebelum janji temu via WhatsApp.</p>
           </div>
         </div>
       </section>
