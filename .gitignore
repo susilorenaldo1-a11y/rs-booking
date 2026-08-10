@@ -20,6 +20,13 @@
 # production
 /build
 
+# database
+/prisma/*.db
+/prisma/*.db-journal
+
+# whatsapp auth state
+/whatsapp-auth/
+
 # misc
 .DS_Store
 *.pem
@@ -39,3 +46,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel

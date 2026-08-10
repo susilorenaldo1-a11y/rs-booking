@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -50,17 +50,17 @@ model Appointment {
 }
 
 model ReminderLog {
-  id            String      @id @default(cuid())
-  appointmentId String
-  type          String
-  recipientType String
+  id             String      @id @default(cuid())
+  appointmentId  String
+  type           String
+  recipientType  String
   recipientPhone String
-  status        String      @default("pending")
-  scheduledAt   DateTime
-  sentAt        DateTime?
-  createdAt     DateTime    @default(now())
+  status         String      @default("pending")
+  scheduledAt    DateTime
+  sentAt         DateTime?
+  createdAt      DateTime    @default(now())
 
-  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  appointment    Appointment @relation(fields: [appointmentId], references: [id])
 }
 
 model WhatsAppSession {

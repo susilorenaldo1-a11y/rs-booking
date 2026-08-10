@@ -21,6 +21,7 @@
     "@fullcalendar/interaction": "^6.1.15",
     "@fullcalendar/react": "^6.1.15",
     "@fullcalendar/timegrid": "^6.1.15",
+    "@neondatabase/serverless": "^1.1.0",
     "@prisma/client": "^6.5.0",
     "@whiskeysockets/baileys": "^6.7.8",
     "ai": "^4.3.0",
