@@ -6,7 +6,7 @@ export default function AdminPage() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <h1 className="text-3xl font-bold text-gray-900">Dashboard Admin</h1>
-          <p className="text-gray-500 mt-2">Kelola jadwal dokter, koneksi WhatsApp, dan pengingat</p>
+          <p className="text-gray-700 mt-2">Kelola jadwal dokter, koneksi WhatsApp, dan pengingat</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -20,7 +20,7 @@ export default function AdminPage() {
               </svg>
             </div>
             <h3 className="font-semibold text-gray-800 mb-1">Kalender Jadwal</h3>
-            <p className="text-sm text-gray-500">Visualisasi jadwal dokter dengan FullCalendar</p>
+            <p className="text-sm text-gray-700">Visualisasi jadwal dokter dengan FullCalendar</p>
           </Link>
 
           <Link
@@ -33,7 +33,7 @@ export default function AdminPage() {
               </svg>
             </div>
             <h3 className="font-semibold text-gray-800 mb-1">Koneksi WhatsApp</h3>
-            <p className="text-sm text-gray-500">Scan QR Code untuk mengaktifkan pengingat WhatsApp</p>
+            <p className="text-sm text-gray-700">Scan QR Code untuk mengaktifkan pengingat WhatsApp</p>
           </Link>
         </div>
       </div>

@@ -10,7 +10,7 @@ export default function WhatsAppPage() {
             &larr; Kembali ke Dashboard
           </Link>
           <h1 className="text-3xl font-bold text-gray-900 mt-1">Koneksi WhatsApp</h1>
-          <p className="text-gray-500 mt-1">Hubungkan WhatsApp untuk mengirim pengingat otomatis</p>
+          <p className="text-gray-700 mt-1">Hubungkan WhatsApp untuk mengirim pengingat otomatis</p>
         </div>
         <QRScanner />
       </div>

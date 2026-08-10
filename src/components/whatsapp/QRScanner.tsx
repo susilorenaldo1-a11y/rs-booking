@@ -84,7 +84,7 @@ export default function QRScanner() {
               <div id="qrcode-canvas" className="w-64 h-64 mx-auto" />
               <QRCodeDisplay data={qrData} />
             </div>
-            <p className="text-xs text-gray-400">Buka WhatsApp &gt; Linked Devices &gt; Scan QR Code</p>
+            <p className="text-xs text-gray-600">Buka WhatsApp &gt; Linked Devices &gt; Scan QR Code</p>
           </div>
         )}
 
@@ -96,7 +96,7 @@ export default function QRScanner() {
               </svg>
             </div>
             <p className="text-gray-800 font-medium">WhatsApp Terhubung</p>
-            <p className="text-sm text-gray-500">Pengingat otomatis akan dikirim via WhatsApp</p>
+            <p className="text-sm text-gray-700">Pengingat otomatis akan dikirim via WhatsApp</p>
           </div>
         )}
 
