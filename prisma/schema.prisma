@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phone     String
+  role      String   @default("patient")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  appointments Appointment[]
+}
+
+model Doctor {
+  id             String        @id @default(cuid())
+  name           String
+  specialization String
+  email          String        @unique
+  phone          String
+  scheduleJson   String        @default("{}")
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  appointments Appointment[]
+}
+
+model Appointment {
+  id            String     @id @default(cuid())
+  patientId     String
+  doctorId      String
+  date          DateTime
+  startTime     String
+  endTime       String
+  status        String     @default("pending")
+  notes         String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  patient       User       @relation(fields: [patientId], references: [id])
+  doctor        Doctor     @relation(fields: [doctorId], references: [id])
+  reminderLogs  ReminderLog[]
+}
+
+model ReminderLog {
+  id            String      @id @default(cuid())
+  appointmentId String
+  type          String
+  recipientType String
+  recipientPhone String
+  status        String      @default("pending")
+  scheduledAt   DateTime
+  sentAt        DateTime?
+  createdAt     DateTime    @default(now())
+
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+}
+
+model WhatsAppSession {
+  id           String   @id @default(cuid())
+  sessionId    String   @unique
+  status       String   @default("disconnected")
+  credentials  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model KnowledgeEntry {
+  id        String   @id @default(cuid())
+  topic     String
+  question  String
+  answer    String
+  embedding String?
+  createdAt DateTime @default(now())
+}
